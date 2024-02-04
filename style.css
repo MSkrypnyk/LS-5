@@ -8,6 +8,11 @@ a {
   text-decoration: none;
 }
 
+html,
+body {
+  min-height: 100%;
+}
+
 body {
   background: linear-gradient(
     134.71deg,
@@ -53,11 +58,25 @@ body {
   color: #a0a3a7;
   font-size: 14px;
   font-weight: 300;
+  transition: 0.2s all ease-in-out;
+}
+
+.header-nav__link:hover {
+  color: #fc40f4;
+  transform: scale(1.1);
 }
 
 .header-button {
   display: flex;
   justify-content: flex-end;
+}
+
+.header-menu {
+  display: none;
+}
+
+.header-menu .material-icons {
+  color: #f2f4f7;
 }
 
 .header-button__link {
@@ -77,6 +96,11 @@ body {
   color: #24282e;
   font-size: 14px;
   font-weight: 600;
+  transition: 0.2s all ease-in-out;
+}
+
+.header-button__link:hover {
+  transform: translateX(-4px);
 }
 
 .main {
@@ -92,6 +116,12 @@ body {
   font-size: 72px;
   font-weight: 400;
   margin-bottom: 32px;
+  transition: 0.2s all ease-in-out;
+}
+
+.title:hover {
+  color: #fc40f4;
+  transform: scale(1.1);
 }
 
 .description {
@@ -99,6 +129,11 @@ body {
   font-size: 18px;
   font-weight: 300;
   margin-bottom: 80px;
+  transition: 0.2s all ease-in-out;
+}
+
+.description:hover {
+  transform: scale(1.1);
 }
 
 .button-learn {
@@ -113,6 +148,12 @@ body {
   color: #fc40f4;
   padding: 16px 32px;
   min-width: 239px;
+  transition: 0.2s all ease-in-out;
+}
+
+.button-learn:hover {
+  transform: translateX(-4px);
+  background-color: #f2f4f716;
 }
 
 .loader {
@@ -122,4 +163,79 @@ body {
   justify-content: center;
   align-items: center;
   gap: 32px;
+}
+
+#headerIcon {
+  display: none;
+}
+
+@media screen and (max-width: 942px) {
+  .header-button {
+    display: none;
+  }
+
+  .main {
+    padding: 50px 20px;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+
+  .description {
+    margin-bottom: 40px;
+  }
+
+  .loader {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header-nav {
+    position: fixed;
+    width: 70%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgb(0 0 0 / 90%);
+    flex-direction: column;
+    align-items: center;
+    transition: 0.5s all ease-in-out;
+    transform: translateX(-120%);
+  }
+
+  #headerIcon:checked ~ .header-nav {
+    transform: translateX(0);
+  }
+
+  .header-button {
+    display: flex;
+    position: fixed;
+    transition: 0.5s all ease-in-out;
+    bottom: 30px;
+    left: calc(50% - 15%);
+    transform: translateX(-50%) scale(0);
+  }
+
+  #headerIcon:checked ~ .header-button {
+    transform: translateX(-50%) scale(1);
+  }
+
+  .header-nav__link {
+    color: #f2f4f7;
+    font-size: 20px;
+    text-decoration: overline;
+  }
+
+  .header-menu {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 592px) {
+  body,
+  .header {
+    padding: 20px;
+  }
 }
